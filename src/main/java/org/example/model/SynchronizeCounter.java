@@ -1,6 +1,6 @@
-package org.example;
+package org.example.model;
 
-public class Counter {
+public class SynchronizeCounter {
     private Long value = 0L;
 
     public Long getValue() {
@@ -11,7 +11,7 @@ public class Counter {
         this.value = value;
     }
 
-    public void increment() {
+    public synchronized void increment() {
         value++;
     }
 }

@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.model.Counter;
 import org.example.model.SynchronizeCounter;
 
 @SuppressWarnings("ALL")

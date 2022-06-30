@@ -1,21 +1,19 @@
-package org.example;
+package org.example.pool;
 
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 @SuppressWarnings("ALL")
-public class ThreadPoolRejectedApp {
+public class ThreadPoolShutdownApp {
     public static void main(String[] args) throws InterruptedException {
-        var minThread = 10;
+        var minThread = 80;
         var maxThread = 100;
         var alive = 1;
         var aliveTime = TimeUnit.MINUTES;
-        var queue = new ArrayBlockingQueue<Runnable>(10);
-        var rejectedHandler = new LogRejectedHandler();
+        var queue = new ArrayBlockingQueue<Runnable>(1000);
 
-        var executor = new ThreadPoolExecutor(minThread, maxThread, alive, aliveTime, queue, rejectedHandler);
+        var executor = new ThreadPoolExecutor(minThread, maxThread, alive, aliveTime, queue);
 
         for (int i = 0; i < 1000; i++) {
             final var task = i;
@@ -34,12 +32,5 @@ public class ThreadPoolRejectedApp {
         // executor.shutdownNow();
         executor.awaitTermination(5, TimeUnit.SECONDS);
          executor.shutdown(); // menghentikan thread pool
-    }
-
-    public static class LogRejectedHandler implements RejectedExecutionHandler {
-        @Override
-        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-            System.out.println("Rejected task: " + r);
-        }
     }
 }

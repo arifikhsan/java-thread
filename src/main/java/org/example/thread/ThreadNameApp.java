@@ -1,4 +1,4 @@
-package org.example;
+package org.example.thread;
 
 public class ThreadNameApp {
     public static void main(String[] args) {

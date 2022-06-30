@@ -1,4 +1,4 @@
-package org.example;
+package org.example.thread;
 
 import static java.util.Objects.isNull;
 

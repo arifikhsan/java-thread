@@ -1,4 +1,4 @@
-package org.example;
+package org.example.thread;
 
 public class ThreadStateApp {
     public static void main(String[] args) throws InterruptedException {

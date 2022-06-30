@@ -1,4 +1,4 @@
-package org.example;
+package org.example.pool;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

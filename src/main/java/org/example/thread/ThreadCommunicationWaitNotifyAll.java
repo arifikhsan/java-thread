@@ -1,4 +1,4 @@
-package org.example;
+package org.example.thread;
 
 @SuppressWarnings("ALL")
 public class ThreadCommunicationWaitNotifyAll {
